@@ -4,8 +4,6 @@ import telegram
 from PIL import Image
 from PIL import ImageDraw
 from PIL import ImageFont
-<<<<<<< HEAD
-=======
 import functools
 import sys
 sys.path.append('../../BotUtils')
@@ -62,5 +60,3 @@ def main():
     bot.idle()
 
 main()
-
->>>>>>> 6d6322e... First working order
