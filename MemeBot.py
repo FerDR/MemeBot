@@ -18,11 +18,29 @@ templates = {
             "box" : (175,437,332,465),
             "color"  : (166,49,58)
             },
+        "classnote":{
+            "box" : (403,475,545,563),
+            "color" : (0,0,0)
+            },
+        "nofear":{
+            "box" : (285,108,400,233),
+            "color" : (0,0,0)
+            },
+        "spider":{
+            "box" : (75,470,220,538),
+            "color" : (0,0,0)
+            },
+        "worthless":{
+            "box" : (98,73,333,203),
+            "color" : (0,0,0)
+            },
+
         }
 
 def help(update,context):
     message = """Use \list to see all available templates,
     then make a meme by doing \<template name> <text>"""
+    update.message.reply_text(message)
 
 def list_templates(update,context):
     message = "The list of templates is the following:\n"
@@ -36,6 +54,7 @@ def make_meme(update,context,template):
     for arg in context.args:
         text+=arg
         text+=" "
+    if not text: text = "YOUR TEXT HERE "
     text = text[0:-1]
     color = templates[template]["color"]
     x1,y1,x2,y2 = templates[template]["box"]
