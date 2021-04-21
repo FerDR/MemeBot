@@ -57,11 +57,12 @@ def list_templates(update,context):
 def make_meme(update,context,template):
     Nboxes = len(templates[template]["box"])
     rawtext = context.args
-    if not rawtext:
-        rawtext = []
-        for n in range(Nboxes):
-            rawtext.append("YOUR TEXT HERE")
+
     fittext = [l.split(',') for l in ','.join(rawtext).split('_')]
+    if not rawtext:
+        fittext = []
+        for n in range(Nboxes):
+            fittext.append("YOUR TEXT HERE")
     if len(fittext)!=Nboxes:
         update.message.reply_text("Please make sure that the number of texts matches the number of places")
         return 
